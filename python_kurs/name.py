@@ -1,0 +1,5 @@
+print("Vem är du?")
+name = input("Skriv förnamn: ")
+surname = input("Skriv efternamn: ")
+favouriteDish = input("Skriv favoriträtt: ")
+print("Hallå " + name + " " + surname + "!, din favoriträtt är " + favouriteDish + "!")

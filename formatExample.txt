@@ -1,0 +1,10 @@
+outputtext = """
+---------------------
+| Meat: {0} packages
+| Vegan: {1} packages
+| Drinks: {2} drinks
+---------------------
+| {3} SEK
+---------------------
+"""
+print(outputtext.format(str(packagesHotDogsMeat),str(packagesHotDogsVegan),str(totStudents),str(math.ceil(totalPrice))))
