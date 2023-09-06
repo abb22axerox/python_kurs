@@ -1,5 +1,4 @@
 import random
-import math
 
 print('''.: THE HIGHER LOWER GAME :.
 ---------------------------
@@ -8,20 +7,22 @@ Game. I  will  randomise  a
 number between  0  and  99.
 Can you guess it?
 ---------------------------''')
+      
+random_Number = random.randint(1, 99)
+guessed_Number = int(input('Your guess > '))
+guesses = 0
 
-guessed_Number = input('Your guess > ')
+while guessed_Number != random_Number:
+    if guessed_Number > random_Number:
+        print('LOWER!')
+        guessed_Number = int(input('Try again > '))
+        guesses += 1
+    elif guessed_Number < random_Number:
+        print('HIGHER!')
+        guessed_Number = int(input('Try again > '))
+        guesses += 1
 
-random_Number = math.ceil((random.random())*100)
-
-print(random_Number)
-
-while guessed_Number < random_Number:
-    print('LOWER!')
-    guessed_Number = input('Try again > ')
-
-while guessed_Number > random_Number:
-    print('HIGHER!')
-    guessed_Number = input('Try again > ')
-
-if guessed_Number == random_Number:
-    print('rätt')
+print(f'''---------------------------
+{guessed_Number} is correct!
+It took you {guesses} guesses.
+Good job!''')

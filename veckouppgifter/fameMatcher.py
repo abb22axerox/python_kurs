@@ -1,7 +1,9 @@
+# define variables
 fameArray = []
 noMatch = True
 printMatches = 'Match: '
 
+# this class constructs objects with parameters
 class famousPeople:
     def __init__(self, name, gender, haircolor, eyecolor):
         self.name = name
@@ -9,6 +11,7 @@ class famousPeople:
         self.haircolor = haircolor
         self.eyecolor = eyecolor
 
+# append objects into an array
 # required famous people
 fameArray.append(famousPeople('Daniel Radcliffe', 'male', 'brown', 'brown'))
 fameArray.append(famousPeople('Rupert Grint', 'male', 'red', 'blue'))
@@ -35,12 +38,14 @@ searchedEyecolor = input('Eye color: ')
 
 print('------------------')
 
+# search for matches in the array
 for person in fameArray:
     if person.gender == searchedGender and searchedHaircolor == person.haircolor and searchedEyecolor == person.eyecolor:
-        printMatches = printMatches + person.name + ', '
+        printMatches = printMatches + person.name + ', ' # create a string with all matches and add an comma in between them
         noMatch = False
 
+# if there is no match
 if noMatch == True:
     print('No match!')
 else:
-    print(printMatches[:-2])
+    print(printMatches[:-2]) # print matches and cut the last two characters of the string

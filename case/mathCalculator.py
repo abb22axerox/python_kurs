@@ -1,3 +1,5 @@
+import math
+
 print('''
 ****************************************
           Mathlete Calculator
@@ -9,8 +11,12 @@ print('''
 ----------------------------------------''')
 
 selectedMode = input('Selection > ')
+operator = ''
+oparatorArray = []
 
+if selectedMode == 'add':
+    operator = '+'
+    
 
-
-def add(a, b):
-    return a + b
+print('''----------------------------------------
+        Calculating 'c' for expression''')

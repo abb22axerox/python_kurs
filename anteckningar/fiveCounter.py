@@ -13,7 +13,6 @@ while 0 <= i:
     i = int(input('Heltal: '))
     if i == 5:
         fives += 1
-    
 
 print(f'''-----------------
       ANTAL FEMMOR: {fives}''')
