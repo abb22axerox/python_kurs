@@ -8,21 +8,21 @@ number between  0  and  99.
 Can you guess it?
 ---------------------------''')
       
-random_Number = random.randint(1, 99)
-guessed_Number = int(input('Your guess > '))
-guesses = 0
+random_number = random.randint(1, 99)
+guessed_number = int(input('Your guess > '))
+guesses = 1
 
-while guessed_Number != random_Number:
-    if guessed_Number > random_Number:
+while guessed_number != random_number:
+    if guessed_number > random_number:
         print('LOWER!')
-        guessed_Number = int(input('Try again > '))
+        guessed_number = int(input('Try again > '))
         guesses += 1
-    elif guessed_Number < random_Number:
+    elif guessed_number < random_number:
         print('HIGHER!')
-        guessed_Number = int(input('Try again > '))
+        guessed_number = int(input('Try again > '))
         guesses += 1
 
 print(f'''---------------------------
-{guessed_Number} is correct!
+{guessed_number} is correct!
 It took you {guesses} guesses.
 Good job!''')

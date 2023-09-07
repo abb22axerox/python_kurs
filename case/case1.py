@@ -1,4 +1,5 @@
-print('''
+def Calculate():
+    print('''
 ****************************************
           Mathlete Calculator
 ----------------------------------------
@@ -8,19 +9,19 @@ print('''
  div | Divide two numbers
 ----------------------------------------''')
 
-selection = input("Selection > ")
-if selection == "add":
-    operator = "+"
-elif selection == "sub":
-    operator = "-"
-elif selection == "mul":
-    operator = "*"
-elif selection == "div":
-    operator = "/"
-else:
-    print("Error: invalid selection (" + selection + ")")
+    selection = input("Selection > ")
+    if selection == "add":
+        operator = "+"
+    elif selection == "sub":
+        operator = "-"
+    elif selection == "mul":
+        operator = "*"
+    elif selection == "div":
+        operator = "/"
+    else:
+        print("Error: invalid selection (" + selection + ")")
 
-print(f'''----------------------------------------
+    print(f'''----------------------------------------
 Calculating 'c' for expression:
 
     a {operator} b = c
@@ -28,11 +29,15 @@ Calculating 'c' for expression:
 Please, enter values for 'a' and 'b'.
 ''')
 
-a = (input("a = "))
-b = (input("b = "))
-operation = a + " " + operator + " " + b
-c = eval(operation)
+    a = (input("a = "))
+    b = (input("b = "))
+    operation = a + " " + operator + " " + b
+    c = eval(operation)
 
-print(f'''
+    print(f'''
 RESULT: {operation} = {c}
 ''')
+
+    input('Press enter to continue...')
+    Calculate()
+Calculate()
