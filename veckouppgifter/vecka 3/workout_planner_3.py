@@ -3,11 +3,13 @@ import os
 workout_goals = ['Run 5 km', 'Lift 10 kg', 'Cycle 30 km']
 
 def Clear_terminal():
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-def Print_basic_message():
+def Print_message(message_type):
     Clear_terminal()
-    print(f'''.: THREE DAY PLANNER :.
+
+    if message_type == 'start':
+        print(f'''.: THREE DAY PLANNER :.
 -----------------------
     WORKOUT GOALS!    
   ONE DAY AT A TIME.  
@@ -20,12 +22,11 @@ n | Next day
 c | Change goal
 e | Exit program
 -----------------------''')
-    global operation
-    operation = input('operation > ')
+        global operation
+        operation = input('operation > ')
 
-def Print_change_message():
-    Clear_terminal()
-    print('''.: THREE DAY PLANNER :.
+    elif message_type == 'c':
+        print('''.: THREE DAY PLANNER :.
 -----------------------
     WORKOUT GOALS!    
   ONE DAY AT A TIME.  
@@ -34,33 +35,38 @@ def Print_change_message():
 1 | TOMORROW
 2 | LATER
 -----------------------''')
-Print_basic_message()
+
+Print_message('start')
 
 while True:
     if operation == 'n':
         workout_goals.remove(workout_goals[0])
         workout_goals.append('')
-        Print_basic_message()
+        Print_message('start')
 
     elif operation == 'c':
-        Print_change_message()
+        Print_message('c')
         day_change = input('Change goal for day > ')
+
         if day_change == '0':
             workout_goals[0] = input('Goal for tomorrow > ')
-            Print_basic_message()
+            Print_message('start')
+
         elif day_change == '1':
             workout_goals[1] = input('Goal for tomorrow > ')
-            Print_basic_message()
+            Print_message('start')
+            
         elif day_change == '2':
             workout_goals[2] = input('Goal for tomorrow > ')
-            Print_basic_message()
+            Print_message('start')
+
         else:
             print('''-----------------------
 ERROR: Bad day
 INFO:  Expected integer (0-2)
 -----------------------''')
             input('Press enter to continue...')
-            Print_basic_message()
+            Print_message('start')
 
     elif operation == 'e':
         break
@@ -70,5 +76,5 @@ INFO:  Expected integer (0-2)
 ERROR: Unknown operation ({operation})
 -----------------------''')
         input('Press enter to continue...')
-        Print_basic_message()
+        Print_message('start')
 exit()
