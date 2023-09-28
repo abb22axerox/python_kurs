@@ -64,9 +64,14 @@ INFO: Note added
             
     elif selection == 'rm':
         title = input('title > ')
-        del notes[title]
-        print('''------------------
+        try:
+            del notes[title]
+            print('''------------------
 INFO: Note deleted
+------------------''')
+        except KeyError:
+            print('''------------------
+ERROR: Unknown note
 ------------------''')
 
     elif selection == 'exit':
@@ -78,8 +83,7 @@ INFO: Note deleted
         break
 
     else:
-        print(f'''------------------
-ERROR: Unknown command ({selection})
+        print(f'''ERROR: Unknown command ({selection})
 ------------------''')
 
     input('Press enter to continue...')
