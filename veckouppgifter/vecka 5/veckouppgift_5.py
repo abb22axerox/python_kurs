@@ -7,8 +7,6 @@ f = open(database_path)
 notes = json.loads(f.read())
 f.close()
 
-no_match = True
-
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
     
@@ -42,6 +40,7 @@ while True:
 
     if selection == 'view':
         title = input('title > ')
+        no_match = True
         for note in notes:
             if title == note:
                 print(f'''------------------
@@ -69,7 +68,7 @@ INFO: Note added
             print('''------------------
 INFO: Note deleted
 ------------------''')
-        except KeyError:
+        except KeyError: #if you try to delete a key that does not exist
             print('''------------------
 ERROR: Unknown note
 ------------------''')
