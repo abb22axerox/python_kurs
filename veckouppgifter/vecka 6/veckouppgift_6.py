@@ -2,10 +2,10 @@ import os
 import requests
 import json
 
-api_url = 'https://8fzqlwv0jd.execute-api.eu-north-1.amazonaws.com/'
+API_URL = 'https://8fzqlwv0jd.execute-api.eu-north-1.amazonaws.com/'
 
-cities = requests.get(api_url)
-cities = json.loads(cities.text)
+cities_get = requests.get(API_URL)
+cities = json.loads(cities_get.text)
 
 # list cities function
 def list_cities(city):
@@ -22,7 +22,7 @@ for city in cities['cities']:
     list_cities(city)
 print(16 * '-')
 
-city = (input('Select city > ')).lower()
+city = input('Select city > ').lower()
 
 if city not in cities['cities']:
     print('''----------------
@@ -48,7 +48,7 @@ if pet not in valid_pets:
     exit()
 
 # get city url dictionary
-city_url = api_url + city
+city_url = API_URL + city
 r = requests.get(city_url)
 main_dict = json.loads(r.text)
 
