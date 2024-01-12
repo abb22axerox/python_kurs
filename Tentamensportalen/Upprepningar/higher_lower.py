@@ -20,13 +20,3 @@ while True:
     guesses += 1
 
 print('Right!')
-
-
-fileFormatVersion: 2
-guid: 2cda990e2423bbf4892e6590ba056729
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-
